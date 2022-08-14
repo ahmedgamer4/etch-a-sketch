@@ -26,7 +26,6 @@
 .grid-item{
     text-align: center;
     background-color: #bfddde;
-    border: solid #ddd 1px;
 }
 
 /*.grid-item:hover{
