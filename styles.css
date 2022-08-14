@@ -1,0 +1,48 @@
+:root{
+    --grid-rows: 0.5;
+    --grid-cols: 0.5;
+}
+
+#container{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: flex;
+    background-color: #075061;
+}
+
+#box{
+    display: grid;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    width: 400px;
+    height: 400px;
+
+}
+
+.grid-item{
+    text-align: center;
+    background-color: #bfddde;
+    border: solid #ddd 1px;
+}
+
+/*.grid-item:hover{
+    background-color: #042434;
+}*/
+
+#change-button{
+    background-color: #228693;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    margin: 10px;
+    border: none;
+    color: #bfddde;
+    text-align: center;
+    vertical-align: middle;
+    font-family: Tahoma, sans-serif;
+    font-size: 20px;
+}
