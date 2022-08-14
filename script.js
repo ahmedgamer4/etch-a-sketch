@@ -20,12 +20,37 @@ function hover(){
     })
 }
 
-/*function changeBox(){
-    let changeButton = document.createElement('button');
-    changeButton.id = 'change-button';
-    changeButton.textContent = 'Change Grid';
-    box.appendChild(changeBox);
-}*/
+let r = 16;
+let c = 16;
 
-makeGrid(16, 16);
-hover()
+function changeBox(){
+
+    let changeButton = document.getElementById("change-button");
+    changeButton.addEventListener('click', e => {
+        let rows = prompt('Rows: ');
+        let cols = prompt("Columns: ")
+        let items = document.querySelectorAll('.grid-item');
+
+        items.forEach(item => {
+            item.parentElement.removeChild(item);
+        })
+        
+        /* makeGrid(parseInt(rows), parseInt(cols)); */
+        c = parseInt(cols);
+        r = parseInt(rows);
+    });
+}
+
+function loop(){
+    /*while (true){*/
+    makeGrid(r, c);
+    hover();
+
+    if (changeBox()){
+        changeBox()
+        makeGrid(r, c);
+        hover();
+    }
+}
+
+loop()
