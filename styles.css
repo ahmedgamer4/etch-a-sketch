@@ -10,7 +10,6 @@
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    display: flex;
     background-color: #075061;
 }
 
@@ -21,6 +20,10 @@
     width: 400px;
     height: 400px;
 
+}
+
+#back{
+    background-color: #d3d3d3;
 }
 
 .grid-item{
@@ -44,6 +47,15 @@
     vertical-align: middle;
     font-family: Tahoma, sans-serif;
     font-size: 20px;
+}
+
+button{
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #075061;
+    border: none;
+    color: #fff;
 }
 
 #slider{
