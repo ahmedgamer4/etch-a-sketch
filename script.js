@@ -1,6 +1,6 @@
 const box = document.getElementById('box');
 const DEFAULT = 'color';
-const default_color = '#333'
+const default_color = '#333';
 
 let currentMode = DEFAULT;
 let currentColor = default_color;
@@ -65,7 +65,7 @@ function changeColor(event){
         event.target.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
     }
     else if (currentMode === 'color') {
-        e.target.style.backgroundColor = currentColor;
+        event.target.style.backgroundColor = currentColor;
     }
 }
 
@@ -105,4 +105,3 @@ window.onload = e => {
     makeGrid(r, c);
     buttonOn(DEFAULT)
 }
-
