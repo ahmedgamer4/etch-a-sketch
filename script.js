@@ -11,6 +11,10 @@ function makeGrid(rows, cols){
     }
 }
 
+function clearGrid(){
+    box.innerHTML = '';
+}
+
 function hover(){
     let nodes = document.querySelectorAll('.grid-item');
     nodes.forEach(node => {
@@ -31,26 +35,17 @@ function changeBox(){
         let cols = prompt("Columns: ")
         let items = document.querySelectorAll('.grid-item');
 
-        items.forEach(item => {
-            item.parentElement.removeChild(item);
-        })
+        clearGrid()
         
         /* makeGrid(parseInt(rows), parseInt(cols)); */
-        c = parseInt(cols);
-        r = parseInt(rows);
+        c = Number(cols);
+        r = Number(rows);
+        makeGrid(r, c)
     });
 }
 
-function loop(){
-    /*while (true){*/
+window.onload = e => {
     makeGrid(r, c);
     hover();
-
-    if (changeBox()){
-        changeBox()
-        makeGrid(r, c);
-        hover();
-    }
+    changeBox();
 }
-
-loop()
