@@ -9,11 +9,17 @@ var slider = document.getElementById('slider');
 var output = document.getElementById('demo');
 
 const rainbow_btn = document.getElementById('rainbow');
+const color_btn = document.getElementById('color');
 
 rainbow_btn.onclick = e => {
     buttonOn('rainbow')
     currentMode = 'rainbow';
 };
+
+color_btn.onclick = e => {
+    buttonOn('color');
+    currentMode = 'color';
+}
 
 let mousedown = false;
 document.body.onmousedown = e => {
@@ -24,7 +30,7 @@ document.body.onmouseup = e => {
 }
 
 
-output.innerHTML = slider.value;
+output.innerHTML = 16;
 
 slider.oninput = function(){
     output.innerHTML = this.value;
@@ -33,13 +39,9 @@ slider.onchange = e => {
     changeBox(e.target.value, e.target.value)
 }
 
-let nodes = document.querySelectorAll('.grid-item');
-nodes.forEach(node => {
-    changeColor(node);
-})
 
-let r = parseInt(output.value);
-let c = parseInt(output.value);
+let r = 16;
+let c = 16;
 
 function makeGrid(rows, cols){
     box.style.setProperty('--grid-rows', rows);
@@ -47,6 +49,8 @@ function makeGrid(rows, cols){
 
     for (let i = 0; i < rows*cols; i++){
         let node = document.createElement('div');
+        node.addEventListener('mouseover', changeColor);
+        node.addEventListener('mousedown', changeColor);
         /*node.innerText = i + 1;*/
         box.appendChild(node).className = 'grid-item';
     }
@@ -69,14 +73,6 @@ function clearGrid(){
     box.innerHTML = '';
 }
 
-function hover(){
-    let nodes = document.querySelectorAll('.grid-item');
-    nodes.forEach(node => {
-        node.addEventListener('mouseover', e => {
-            e.target.style.background = "#042434";
-        });
-    })
-}
 
 function reloadGrid(){
     clearGrid();
@@ -93,12 +89,15 @@ function buttonOn(mode){
     if (currentMode === 'rainbow'){
         rainbow_btn.classList.remove('active');
     }
-    /*else if (currentMode === 'color'){
-
-    }*/
+    else if (currentMode === 'color'){
+        color_btn.classList.remove('active');
+    }
 
     if (mode === 'rainbow'){
         rainbow_btn.classList.add('active');
+    }
+    else if (mode === 'color'){
+        color_btn.classList.add('active');
     }
 }
 
